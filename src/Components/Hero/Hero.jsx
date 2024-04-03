@@ -73,7 +73,7 @@ const Hero = () => {
         ReactJs CSS Bootstrap MUI
         </motion.div>
         <div className="imageContainer">
-          <img src="/hero.png" alt="AkashImage" />
+          <img src="./hero2.png" alt="AkashImage" />
         </div>
       </div>
     </>
