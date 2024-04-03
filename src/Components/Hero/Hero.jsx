@@ -70,7 +70,7 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-        ReactJs CSS Bootstrap Material Ui
+        ReactJs CSS Bootstrap MUI
         </motion.div>
         <div className="imageContainer">
           <img src="/hero.png" alt="AkashImage" />
