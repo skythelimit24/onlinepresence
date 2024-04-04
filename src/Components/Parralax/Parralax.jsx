@@ -18,7 +18,7 @@ const Parralax = ({ type }) => {
         style={{
           background:
             type === "Services"
-              ? "linear-gradient(180deg ,#111132 ,#0c0c1d)"
+              ? `linear-gradient(180deg, #111132 ,#0c0c1d)`
               : "linear-gradient(180deg ,#111132 ,#505064)",
         }}
       >

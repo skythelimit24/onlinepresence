@@ -4,19 +4,18 @@ import Navbar from './Components/Navabar/Navbar'
 import Hero from './Components/Hero/Hero'
 import Parralax from "./Components/Parralax/Parralax";
 import Services from "./Components/Services/Services";
+import Portfolio from "./Components/Portfolio/Portfolio";
 const App = () => {
   return (
     <>
-    <section id="Homepage">
+    <section id="HomePage">
       <Navbar/>
       <Hero/>
     </section>
     <section id="Services"><Parralax type="Services"/></section>
     <section><Services/></section>
     <section id="Portfolio"><Parralax type="Portfolio"/></section>
-    <section>Portfolio1</section>
-    <section>Portfolio2</section>
-    <section>portfoli03</section>
+    <Portfolio/>
     <section id="Contact">Contact</section>
     </>
   )
