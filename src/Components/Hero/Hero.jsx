@@ -38,6 +38,8 @@ const Hero = () => {
       },
     },
   };
+
+  
   return (
     <>
       <div className="hero">
@@ -51,7 +53,7 @@ const Hero = () => {
             <motion.h2 variants={TextVariants}>Akash Tanwar</motion.h2>
             <motion.h1 variants={TextVariants}>Web Developer</motion.h1>
             <motion.div className="buttons" variants={TextVariants}>
-              <motion.button variants={TextVariants}>
+              <motion.button variants={TextVariants} >
                 See the latest Work
               </motion.button>
               <motion.button variants={TextVariants}>Contact Me</motion.button>
@@ -70,7 +72,7 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-        ReactJs CSS Bootstrap MUI
+        ReactJs CSS Javascript MUI 
         </motion.div>
         <div className="imageContainer">
           <img src="./hero2.png" alt="AkashImage" />
