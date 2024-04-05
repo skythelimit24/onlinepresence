@@ -1,42 +1,70 @@
-import React, { useRef } from "react";
+import React, { useRef ,useState} from "react";
 import "./Portfolio.scss";
-import { motion,useScroll,useSpring } from "framer-motion";
+import { motion,useScroll,useSpring, useTransform } from "framer-motion";
 
 const items = [
   {
     id: 1,
-    title: "Food cart Application",
-    image:
-      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/evening-in-da-nang-manjik-pictures.jpg",
-    description: " you can add and remove item of food from the UI ",
+    title: "Expense Tracker",
+    image: "https://www.shutterstock.com/image-vector/flat-calculator-vector-illustration-long-600nw-554850088.jpg",
+    description: "Expenses Recorder, the ultimate tool to track and manage your spending habits with ease." ,
+    url:"https://expenses-calculator-mz33-cydykh13l-akash-tanwars-projects.vercel.app/"
   },
   {
     id: 2,
-    title: "My List",
-    image:
-      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/evening-in-da-nang-manjik-pictures.jpg",
-    description: "Add update and delete the task  in different sections ",
+    title: "Text-Utils",
+    image: "https://marketplace.workiva.com/sites/marketplace/files/images/Screenshots/file-utils-logo-16-7-en.svg",
+    description: "Update transform and copy text a simple text transformer app",
+    url:"https://textutils-7ucrv3usb-akash-tanwars-projects.vercel.app/#"
   },
   {
     id: 3,
     title: "Weather Authentication",
-    image:
-      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/evening-in-da-nang-manjik-pictures.jpg",
+    image: "https://img.freepik.com/free-vector/watercolor-weather-effects-collection_23-2149115331.jpg",
     description:
       " input the city to fetch the information of the weather of the desired location ",
+      url:"https://portfolio-drab-nine-46.vercel.app/"
   },
   {
     id: 4,
     title: "News Application",
-    image:
-      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/evening-in-da-nang-manjik-pictures.jpg",
-    description:
-      "Fetch the daily dose of the news from the article categorized accordingly",
+    image: "https://st.depositphotos.com/1011646/1255/i/450/depositphotos_12553000-stock-photo-breaking-news-screen.jpg",
+    description:"Fetch the daily dose of the news from the article categorized accordingly",
+    url:"https://news24x7-f64r.vercel.app/"
   },
 ];
 
+
 const Single = ({ item }) => {
-  return <section>{item.title}</section>;
+ 
+  const ref = useRef();
+ 
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  });
+
+  const y = useTransform(scrollYProgress,[0,1], [-300,300]);
+
+  const handleButtonClick = (url) => {
+    window.open(url, '_blank');
+  };
+
+  return (
+  <section >
+    <div className="container">
+      <div className="wrapper">
+        <div className="imagecontainer" ref={ref}>
+      <img src={item.image} alt="image" srcset="" />
+      </div>
+      <motion.div className="textContainer" style={{y}}  >
+        <h2 >{item.title}</h2>
+        <p>{item.description}</p>
+      <button key={item.id} onClick={() => handleButtonClick(item.url)}>Go to </button>
+      </motion.div>
+      </div>
+    </div>
+    </section>
+  );
 };
 
 const Portfolio = () => {
