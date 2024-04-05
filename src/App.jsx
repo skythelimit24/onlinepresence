@@ -5,6 +5,7 @@ import Hero from './Components/Hero/Hero'
 import Parralax from "./Components/Parralax/Parralax";
 import Services from "./Components/Services/Services";
 import Portfolio from "./Components/Portfolio/Portfolio";
+import Contacts from "./Components/Contacts/Contacts";
 const App = () => {
   return (
     <>
@@ -16,7 +17,9 @@ const App = () => {
     <section><Services/></section>
     <section id="Portfolio"><Parralax type="Portfolio"/></section>
     <Portfolio/>
-    <section id="Contact">Contact</section>
+    <section id="Contact">
+      <Contacts/>
+      </section>
     </>
   )
 };
