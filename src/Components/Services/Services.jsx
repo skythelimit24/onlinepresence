@@ -29,7 +29,7 @@ const Services = () => {
         variants={variants}
         initial="initial"
         ref={ref}
-        animate={InView && "animate"}
+        animate={ InView && "animate"}
       >
         <motion.div className="textContainer" variants={variants}>
           <p>
@@ -38,7 +38,7 @@ const Services = () => {
           </p>
           <hr />
         </motion.div>
-        <motion.div className="titleContainer" variants={variants}>
+        { <motion.div className="titleContainer" variants={variants}>
           <div className="title">
             <img src="/people.webp" alt="business image" />
             <h1>
@@ -53,8 +53,8 @@ const Services = () => {
             </h1>
             <button>What I Do ?</button>
           </div>
-        </motion.div>
-        <motion.div className="listcontainer" variants={variants}>
+        </motion.div> }
+        { <motion.div className="listcontainer" variants={variants}>
           <motion.div
             className="box"
             whileHover={{ background: "lightgrey", color: "black" }}
@@ -111,7 +111,7 @@ const Services = () => {
             </p>
             <button>Go</button>
           </motion.div>
-        </motion.div>
+        </motion.div> }
       </motion.div>
     </>
   );

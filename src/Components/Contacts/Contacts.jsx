@@ -1,9 +1,15 @@
-import React,{useRef} from "react";
+import React,{useRef, useState ,useEffect} from "react";
 import "./Contacts.scss";
 import { motion,useInView} from "framer-motion";
+import emailjs from '@emailjs/browser';
 const Contacts = () => {
 
     const ref = useRef();
+  
+    const formref = useRef(null);
+    const IsInView = useInView(ref,{margin:"-100px"})
+    const[success,setSuccess]=useState(false);
+
   const variants = {
     initial: {
       y: 500,
@@ -19,7 +25,38 @@ const Contacts = () => {
     },
   };
 
-  const IsInView = useInView(ref,{margin:"-100px"})
+ 
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('service_nsnu28e', 'template_wyqfh3j', formref.current,"NAJZMIuwvjQhzLOXN")
+      .then(
+        (result) => {
+          setSuccess(true)
+        },
+        (error) => {
+          setError(true)
+        },
+      );
+
+      formref.current.reset();
+  };
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setSuccess(false);
+    }, 1000); 
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [success]);
+
+
+
   return (
     <>
       <motion.div ref={ref}
@@ -48,7 +85,7 @@ const Contacts = () => {
             className="phoneSvg"
             initial={{ opacity: 1 }}
             whileInView={{ opacity: 0 }}
-            transition={{ delay: 1, duration: 2 }}
+            transition={{ delay: 1, duration: 1.5 }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +94,7 @@ const Contacts = () => {
               viewBox="0 0 32.666 32.666"
               fill="none"
               initial={{pathLength:0}}
-              animate={IsInView && {pathLength:1}}
+              // animate={IsInView && {pathLength:1}}
               transition={{duration:3}}
             >
               <motion.path
@@ -79,13 +116,15 @@ const Contacts = () => {
               />
             </svg>
           </motion.div>
-          <motion.form  initial={{ opacity: 0 }}
+          <motion.form  onSubmit={sendEmail} ref={formref} initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 3, duration: 3 }}>
-            <input type="text" required placeholder="Name" />
-            <input type="email" required placeholder="Email" />
-            <textarea rows={8} placeholder="Message" />
-            <button>Submit</button>
+            transition={{ delay: 1.5, duration: 2 }}>
+            <input  type="text" required placeholder="Name" name="name" />
+            <input type="number" placeholder="Enter Contact Number" pattern="[0-9]+" name="contact"/>
+            <input type="email" required placeholder="Email" name="email"/>
+            <textarea rows={8} placeholder="Message" name="message"/>
+            <button >Submit</button>
+           <h1>{success && ` Thank You ! Your Response is recorded and will connect you shortly `}</h1> 
           </motion.form>
         </div>
       </motion.div>

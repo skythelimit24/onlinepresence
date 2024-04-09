@@ -8,14 +8,14 @@ const items = [
     title: "Expense Tracker",
     image: "https://www.shutterstock.com/image-vector/flat-calculator-vector-illustration-long-600nw-554850088.jpg",
     description: "Expenses Recorder, the ultimate tool to track and manage your spending habits with ease." ,
-    url:"https://expenses-calculator-mz33-cydykh13l-akash-tanwars-projects.vercel.app/"
+    url:"https://expenses-calculator-mz33.vercel.app/"
   },
   {
     id: 2,
     title: "Text-Utils",
     image: "https://marketplace.workiva.com/sites/marketplace/files/images/Screenshots/file-utils-logo-16-7-en.svg",
     description: "Update transform and copy text a simple text transformer app",
-    url:"https://textutils-7ucrv3usb-akash-tanwars-projects.vercel.app/#"
+    url:"https://textutils-7ucrv3usb-akash-tanwars-projects.vercel.app/"
   },
   {
     id: 3,
@@ -54,12 +54,12 @@ const Single = ({ item }) => {
     <div className="container">
       <div className="wrapper">
         <div className="imagecontainer" ref={ref}>
-      <img src={item.image} alt="image" srcset="" />
+      <img src={item.image} alt="image"  />
       </div>
       <motion.div className="textContainer" style={{y}}  >
         <h2 >{item.title}</h2>
         <p>{item.description}</p>
-      <button key={item.id} onClick={() => handleButtonClick(item.url)}>Go to </button>
+      <button key={item.id} onClick={() => handleButtonClick(item.url)}>Go to {item.title} </button>
       </motion.div>
       </div>
     </div>
