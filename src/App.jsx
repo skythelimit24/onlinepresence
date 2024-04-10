@@ -6,11 +6,11 @@ import Parralax from "./Components/Parralax/Parralax";
 import Services from "./Components/Services/Services";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import Contacts from "./Components/Contacts/Contacts";
-import Cursor from "./Components/Cursor/Cursor";
+import Cursor from "./Components/Cursor/Cursor"
 const App = () => {
   return (
     <>
-      <Cursor />
+      <Cursor/>
       <section id="HomePage">
         <Navbar />
         {<Hero />}
