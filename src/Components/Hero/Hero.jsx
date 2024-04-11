@@ -1,5 +1,7 @@
 import React from "react";
 import "./hero.scss";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { motion } from "framer-motion";
 const Hero = () => {
   const TextVariants = {
@@ -39,7 +41,16 @@ const Hero = () => {
     },
   };
 
-  
+    const handleDownload = () => {
+      const downloadLink = document.createElement('a');
+      downloadLink.href = "/AkashTanwarResume.pdf";
+      downloadLink.download = 'Resume.pdf';
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      toast.info('Downloading resume...');
+    };
+
   return (
     <>
       <div className="hero">
@@ -56,7 +67,8 @@ const Hero = () => {
               <motion.button variants={TextVariants} >
                 See the latest Work
               </motion.button>
-              <motion.button variants={TextVariants}>Contact Me</motion.button>
+              <button variants={TextVariants} onClick={handleDownload}>Download Resume</button>
+              <ToastContainer />    
             </motion.div>
             <motion.img
               variants={TextVariants}
@@ -72,7 +84,7 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-        ReactJs CSS Javascript MUI 
+        ReactJs CSS Javascript.
         </motion.div>
         <div className="imageContainer">
           <img src="./hero2.png" alt="AkashImage" />
