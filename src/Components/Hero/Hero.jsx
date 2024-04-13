@@ -1,7 +1,5 @@
 import React from "react";
 import "./hero.scss";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { motion } from "framer-motion";
 const Hero = () => {
   const TextVariants = {
@@ -48,7 +46,6 @@ const Hero = () => {
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
-      toast.info('Downloading resume...');
     };
 
   return (
@@ -67,8 +64,7 @@ const Hero = () => {
               <motion.button variants={TextVariants} >
                 See the latest Work
               </motion.button>
-              <button variants={TextVariants} onClick={handleDownload}>Download Resume</button>
-              <ToastContainer />    
+              <motion.button variants={TextVariants} onClick={handleDownload}>Download Resume</motion.button>
             </motion.div>
             <motion.img
               variants={TextVariants}

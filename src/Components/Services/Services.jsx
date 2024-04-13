@@ -29,7 +29,7 @@ const Services = () => {
         variants={variants}
         initial="initial"
         ref={ref}
-        animate={ InView && "animate"}
+        animate={ "animate"}  // 
       >
         <motion.div className="textContainer" variants={variants}>
           <p>
@@ -54,7 +54,7 @@ const Services = () => {
             <button>What I Do ?</button>
           </div>
         </motion.div> }
-        { <motion.div className="listcontainer" variants={variants}>
+         <motion.div className="listcontainer" variants={variants}>
           <motion.div
             className="box"
             whileHover={{ background: "lightgrey", color: "black" }}
@@ -97,21 +97,7 @@ const Services = () => {
             </p>
             <button>Go</button>
           </motion.div>
-          <motion.div
-            className="box"
-            whileHover={{ background: "lightgrey", color: "black" }}
-          >
-            <h2>Branding</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-              recusandae sapiente. Suscipit, quae? Laboriosam perspiciatis
-              ratione corrupti error, tempore ipsum fuga quam repellat, ab nihil
-              hic. Molestias, cumque minima asperiores illum corporis rerum
-              vitae.
-            </p>
-            <button>Go</button>
-          </motion.div>
-        </motion.div> }
+        </motion.div> 
       </motion.div>
     </>
   );

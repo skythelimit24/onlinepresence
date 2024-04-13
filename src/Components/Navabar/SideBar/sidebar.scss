@@ -7,8 +7,6 @@ justify-content: center;
 background-color: white;
 color: black;
 
-
-
 .bg{
     z-index: 999;
 position: fixed;
@@ -16,12 +14,13 @@ top: 0;
 left: 0;
 bottom: 0;
 width: 400px;
+height: 100%;
 background: white;
 @include mobile{
     width: 200px;
+  height: 100%; 
       }
   
-
     .links{
         position: absolute;
         width: 100%;
